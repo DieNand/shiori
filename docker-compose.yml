@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    command: "gem build Shiori.gemspec && gem install Shiori && bundle exec shiori"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"

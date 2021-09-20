@@ -1,43 +1,59 @@
 # Shiori
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Shiori`. To experiment with that code, run `bin/console` for an interactive prompt.
+Bot is used to search anilist or mal for a specific id and then post the result
 
-TODO: Delete this and the text above, and describe your gem
+# Build the bot
 
-## Installation
+To build and run the bot, use the following commands
 
-Add this line to your application's Gemfile:
+`gem uninstall Shiori` (Remove old version of the bot that may be installed)
 
-```ruby
-gem 'Shiori'
-```
+`gem build Shiori.gemspec` (Make sure that Shiori-<version>.gem is not already present in main directory)
 
-And then execute:
+`gem install Shiori`
 
-    $ bundle install
+`shiori`
 
-Or install it yourself as:
+# Start bot for testing
 
-    $ gem install Shiori
+Use this command to start the bot
 
-## Usage
+`gem build Shiori.gemspec && gem install Shiori && bundle exec shiori`
 
-TODO: Write usage instructions here
+The bot responds to the following commands
 
-## Development
+`!ani_loopkup <id-required>`
+`!mal_loopup <id-required>`
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# Run on docker
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Contributing
+To install docker on WSL use this link
+https://docs.docker.com/engine/install/ubuntu/
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Shiori. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/Shiori/blob/master/CODE_OF_CONDUCT.md).
+To install docker compose on WSL use this link
+https://docs.docker.com/compose/install/
 
-## License
+Use this command to start docker on WSL (Windows). (systemd doesn't seem to work on WSL)
+`sudo service docker start`
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Build the image
+`sudo docker-compose build`
 
-## Code of Conduct
+Run the image
+`sudo docker -D run shiori_web`
 
-Everyone interacting in the Shiori project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/Shiori/blob/master/CODE_OF_CONDUCT.md).
+Run image and pass in Dicord bot_id
+`sudo docker run --env BOT_ID='<bot-id-goes-here>' -d shiori_web`
+
+Clean out old containers
+`sudo docker system prune`
+
+Save built Shiori image to .tar
+`sudo docker save shiori_web -o shiori.tar`
+
+Load Shiori image from .tar
+`sudo docker image load -i ./shiori.tar`
+
+# TODO:
+Add development and production environments at some point

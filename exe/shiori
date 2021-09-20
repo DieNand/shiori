@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'dotenv'
+require "bundler/setup"
+require "Shiori"
+require 'discordrb'
+require 'httparty'
+require 'rest/anilist'
+require 'bots/shiori'
+
+Shiori.version
+Shiori.run_shiori_bot

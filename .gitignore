@@ -9,3 +9,11 @@
 
 # rspec failure tracking
 .rspec_status
+
+# ignore gem builds in main director
+*.gem
+shiori.tar
+
+# ignore history
+.byebug_history
+
