@@ -54,6 +54,3 @@ Save built Shiori image to .tar
 
 Load Shiori image from .tar
 `sudo docker image load -i ./shiori.tar`
-
-# TODO:
-Add development and production environments at some point
