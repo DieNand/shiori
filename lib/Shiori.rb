@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "Shiori/version"
-Dotenv.load
 
 module Shiori
   class Error < StandardError; end
