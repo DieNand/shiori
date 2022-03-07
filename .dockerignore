@@ -1,0 +1,12 @@
+# .dockerignore
+.git
+.gitignore
+.DS_Store
+README.md
+/Dockerfile
+/env.*
+/log
+/tmp
+.rspec
+/spec
+shiori.tar
