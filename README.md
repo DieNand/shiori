@@ -2,6 +2,7 @@
 
 Bot is used to search anilist or mal for a specific id and then post the result
 
+
 # Build the bot
 
 To build and run the bot, use the following commands
@@ -23,11 +24,13 @@ Use this command to start the bot
 The bot responds to the following commands
 
 `!anilist_id <id-required>`
+  
 `!mal_id <id-required>`
+  
 `!name <name-string-required>`
 
-# Run on docker
 
+# Run on docker
 
 To install docker on WSL use this link
 https://docs.docker.com/engine/install/ubuntu/
@@ -55,3 +58,7 @@ Save built Shiori image to .tar
 
 Load Shiori image from .tar
 `sudo docker image load -i ./shiori.tar`
+  
+# Contributions
+
+Contributions are welcome. To contribute, fork the repo and create a pull request
