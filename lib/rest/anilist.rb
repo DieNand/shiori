@@ -10,6 +10,12 @@ class Anilist
 		search(vars: vars)
 	end
 
+	def search_with_anime_name(name:)
+		vars = variables(id: name, type: 'search')
+		search(vars: vars)
+	end
+	
+	private
 	def search(vars:)
 		options = {
 			body: {
@@ -20,14 +26,18 @@ class Anilist
 		
 		return HTTParty.post('https://graphql.anilist.co', options)
 	end
-	
-	private
+
 	def query(variables:)
 	query_id = variables.keys[0].to_s
+	variable_type = if variables[query_id.to_sym].is_a? Integer
+					'Int'
+				 elsif variables[query_id.to_sym].is_a? String
+					'String'
+				 end
 	# set default value like so
 	# query ($#{query_id}: Int = 15125) {
 	<<-QUERY
-	query ($#{query_id}: Int) {
+	query ($#{query_id}: #{variable_type}) {
 		Media (#{query_id}: $#{query_id}, type: ANIME) {
 			id
 			idMal
@@ -54,6 +64,6 @@ class Anilist
 	end
 
 	def variables(id:, type:)
-		{"#{type}":"#{id}"}
+		{"#{type}": id}
 	end
 end

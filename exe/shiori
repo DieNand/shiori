@@ -8,5 +8,6 @@ require 'httparty'
 require 'rest/anilist'
 require 'bots/shiori'
 
+Dotenv.load
 Shiori.version
 Shiori.run_shiori_bot
