@@ -22,8 +22,8 @@ Use this command to start the bot
 
 The bot responds to the following commands
 
-`!ani_loopkup <id-required>`
-`!mal_loopup <id-required>`
+`!anilist_id <id-required>`
+`!mal_id <id-required>`
 
 # Run on docker
 
