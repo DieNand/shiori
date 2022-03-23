@@ -24,6 +24,7 @@ The bot responds to the following commands
 
 `!anilist_id <id-required>`
 `!mal_id <id-required>`
+`!name <name-string-required>`
 
 # Run on docker
 

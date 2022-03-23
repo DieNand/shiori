@@ -14,7 +14,8 @@ class Anilist
 		vars = variables(id: name, type: 'search')
 		search(vars: vars)
 	end
-
+	
+	private
 	def search(vars:)
 		options = {
 			body: {
@@ -25,8 +26,7 @@ class Anilist
 		
 		return HTTParty.post('https://graphql.anilist.co', options)
 	end
-	
-	private
+
 	def query(variables:)
 	query_id = variables.keys[0].to_s
 	variable_type = if variables[query_id.to_sym].is_a? Integer
