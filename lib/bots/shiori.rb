@@ -20,7 +20,8 @@ module Bots
       end
 
       bot.command(:anime,
-                  description: 'Searches for anime on anilist using the romaji, native or english name eg. `!anime <name_of_anime_typed_out>`') do |event, name|
+                  description: 'Searches for anime on anilist using the romaji, native or english name eg. `!anime <name_of_anime_typed_out>`') do |event|
+        name = event.message.content.gsub("!anime", '').strip
         result = Anilist.new().search_with_anime_name(name: name)
         event.respond "https://myanimelist.net/anime/#{JSON.parse(result.to_s)['data']['Media']['idMal']}"
       end
