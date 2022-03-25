@@ -26,8 +26,9 @@ module Bots
         event.respond "https://myanimelist.net/anime/#{JSON.parse(result.to_s)['data']['Media']['idMal']}"
       end
 
-      bot.message(contains: /(\d+)/) do |event|
-        search_ids = event.message.content.scan(/(\d+)/).flatten
+      bot.message(contains: /(?<!\S)(\d+)(?!\S)/) do |event|
+        search_ids = event.message.content.scan(/(?<!\S)(\d+)(?!\S)/).flatten
+        byebug
         search_ids.each do |mal_id|
           result = Anilist.new().search_with_id_mal(id_mal: mal_id.to_i)
           event.respond "https://myanimelist.net/anime/#{JSON.parse(result.to_s)['data']['Media']['idMal']}"
