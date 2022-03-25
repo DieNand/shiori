@@ -5,7 +5,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in Shiori.gemspec
 gemspec
 
-gem 'dotenv', '~> 2.7.6'
+gem 'dotenv', '~> 2.7.6', groups: [:development, :test]
 
 # gem "rake", "~> 13.0"
 

@@ -3,7 +3,9 @@
 Bot is used to search anilist or mal for a specific id and then post the result
 
 
-# Build the bot
+## Build the bot 
+
+_** This approach is mostly for development, but you can also run the bot this way without docker **_
 
 To build and run the bot, use the following commands
 
@@ -15,7 +17,13 @@ To build and run the bot, use the following commands
 
 `shiori`
 
-# Start bot for testing
+You can use dotenv to invoke shiori in development mode (to prevent you from commiting a BOT_ID to github!) eg.
+
+`dotenv -f ".env.development" shiori`
+
+For this to work you need a file .env.development in the root of your development directory. This file is ignored in .gitignore and .dockerignore files and will remain on your local machine only
+
+## Start bot for testing
 
 Use this command to start the bot
 
@@ -30,7 +38,7 @@ The bot responds to the following commands
 `!name <name-string-required>`
 
 
-# Run on docker
+## Run on docker
 
 To install docker on WSL use this link
 https://docs.docker.com/engine/install/ubuntu/
@@ -59,6 +67,6 @@ Save built Shiori image to .tar
 Load Shiori image from .tar
 `sudo docker image load -i ./shiori.tar`
   
-# Contributions
+## Contributions
 
 Contributions are welcome. To contribute, fork the repo and create a pull request
