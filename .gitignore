@@ -17,3 +17,5 @@ shiori.tar
 # ignore history
 .byebug_history
 
+# environment files
+/.env.*
